@@ -1,0 +1,26 @@
+home navbar header footer search error
+categories:
+    {
+        Sugary,
+
+        Biscuits,
+
+        Dairies,
+            
+        Beverages,
+            
+        Crisps,
+
+        Meats
+    }
+    
+
+
+    
+statistiques  
+
+#A4120F red 
+#FEE0E2 light 
+#89B04E green
+#6A543E brown
+#FCA296 pink
