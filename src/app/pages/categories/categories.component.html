@@ -1,25 +1,25 @@
         <div class="container">
-            
-                <div class="row wow headShake">
-                    <div class="col-md-3 text-center">
+            <div >
+                <div  class="row wow headShake">
+                    <div *ngFor="let categorie of categories | slice:0:6" class="col-md-3 text-center">
                                     
                                      
                     <!--Card Light-->
                     <div class="card">
                             <!--Card image-->
-                            <div class="view overlay hm-white-slight">
-                                <img src="../assets/sugary.png" class="img-fluid" alt="">
+                            <div class="view overlay hm-white-slight thumbnail" item-width="200" item-height="200">
+                                <img src= {{categorie.img_src}}  class="img-fluid" alt="">
                                 <a>
                                     <div class="mask"></div>
                                 </a>
                             </div>
                             <!--/.Card image-->
-                            <!--Card content-->
+                            <!--Card cotent-->
                             <div class="card-body">
                                 <!--Title-->
-                                <h4 class="card-title">Sugary snacks</h4>
+                                <h4 class="card-title">{{categorie.name}}</h4>
                                 <hr>    
-                                <a href="#" class="btn btn-primary">Explore<i class="fa fa-chevron-right"></i></a>
+                                <a href= {{categorie.url}} class="btn btn-primary">Explore<i class="fa fa-chevron-right"></i></a>
                                     
                             </div>
                             <!--/.Card content-->
@@ -27,4 +27,7 @@
                         <!--/.Card Light-->  
                     </div>
                 </div>
+            </div>
+            
+                
             </div>               
