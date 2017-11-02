@@ -1,9 +1,9 @@
 import { Observable } from 'rxjs/Observable';
-import { Category } from './../../models/category';
-
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ProductsService } from './../products.service';
 import { Product } from './../../models/product';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input  } from '@angular/core';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-products',
@@ -12,22 +12,25 @@ import { Component, OnInit } from '@angular/core';
   providers: [ProductsService]
 })
 export class ProductsComponent implements OnInit {
+  //@Input() index:number;
 
-
+  private category : Observable<Product[]>;
   private products : Product[];
-  private categories : Observable<Category[]>;
-  private category : Category;
 
-  constructor(private productsService:ProductsService) {}
+  private isReady: boolean = false;
+  
+
+  constructor(private productsService:ProductsService, private route: ActivatedRoute) {}
   
   ngOnInit() {
     
-    this.categories = this.productsService.getCategory("Sugary");
+    this.route.paramMap
+    .switchMap((params: ParamMap) => 
+    this.category = this.productsService.getCategory(+params.get('index')))
 
-    this.categories.subscribe(i => {
-      this.category = i[0];
-      this.products = this.category.products;
-      console.log(this.products);
+    .subscribe(i => {
+      this.products = i;
+      this.isReady = true;
     });
       
   }

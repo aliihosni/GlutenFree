@@ -18,13 +18,14 @@ import { ProductsComponent } from './pages/products/products.component';
 
 
 import { RouterModule, Routes } from '@angular/router';
+import { ImgsrcDirective } from './pages/imgsrc.directive';
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/Categories', pathMatch: 'full' },
-  { path: 'Categories',  component: CategoriesComponent },
-  { path: 'Category', component: ProductsComponent }
+  { path: '', redirectTo: '/categories', pathMatch: 'full' },
+  { path: 'categories',  component: CategoriesComponent },
+  { path: 'category/:index', component: ProductsComponent }
 ];
 
 @NgModule({
@@ -33,7 +34,8 @@ const routes: Routes = [
     NavbarComponent,
     FooterComponent,
     CategoriesComponent,
-    ProductsComponent
+    ProductsComponent,
+    ImgsrcDirective
   ],
   imports: [
     BrowserModule,
@@ -46,8 +48,8 @@ const routes: Routes = [
     MDBBootstrapModule.forRoot(),
     NgbModule.forRoot(),
   ],
-  schemas: [ NO_ERRORS_SCHEMA ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }

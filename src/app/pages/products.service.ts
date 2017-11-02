@@ -3,14 +3,24 @@ import { Product } from './../models/product';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
+import * as firebase from 'firebase';
+
 
 @Injectable()
 export class ProductsService {
 
+  storageRef: any;
 
-  constructor(private db: AngularFireDatabase) {}
+  constructor(private db: AngularFireDatabase) {
+    this.storageRef = firebase.storage().ref();
+  }
 
-  getCategory(name:string): Observable<Category[]> {
-    return this.db.list('/categories', ref => ref.orderByChild('name').equalTo(name)).valueChanges();
+
+  getCategories(): Observable<Category[]> {
+    return this.db.list('/categories').valueChanges();
+  }
+
+  getCategory(index:number): Observable<Product[]> {
+    return this.db.list('/categories/'+index+'/products').valueChanges();
   }
 }
