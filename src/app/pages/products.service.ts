@@ -23,4 +23,7 @@ export class ProductsService {
   getCategory(index:number): Observable<Product[]> {
     return this.db.list('/categories/'+index+'/products').valueChanges();
   }
+  getProduct(index:number, id:number): Observable<Product> {
+    return this.db.object('/categories/'+index+'/products/'+id).valueChanges();
+  }
 }

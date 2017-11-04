@@ -1,3 +1,4 @@
+
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
@@ -19,23 +20,62 @@ import { ProductsComponent } from './pages/products/products.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { ImgsrcDirective } from './pages/imgsrc.directive';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+
+
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatStepperModule,
+} from '@angular/material';
 
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/categories', pathMatch: 'full' },
   { path: 'categories',  component: CategoriesComponent },
-  { path: 'category/:index', component: ProductsComponent }
+  { path: 'category/:index', component: ProductsComponent },
+  { path: 'category/:index/product/:id', component: ProductDetailComponent }
 ];
 
 @NgModule({
+  
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
     CategoriesComponent,
     ProductsComponent,
-    ImgsrcDirective
+    ImgsrcDirective,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +87,38 @@ const routes: Routes = [
     HttpModule,
     MDBBootstrapModule.forRoot(),
     NgbModule.forRoot(),
+    
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatStepperModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

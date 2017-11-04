@@ -1,14 +1,18 @@
 
                 <div ng-if="isReady" class="card-columns">
                     <div *ngFor="let product of products; let i = index ">
-                      <div *ngIf="product.img_src" class="card wow headShake text-center">
-
+                      <div *ngIf="product.img_src" class="card wow headShake text-center hoverable">
+                          <div class="view hm-cyan-strong overlay">
                         <img  class="card-img-top img-fluid rounded mx-auto d-block" src= {{product.img_src[0].src}} alt= {{product.name}}>
+                        <div class="mask flex-center">
+                            <p class="white-text">{{product.name}}</p>       
+                        </div>
+                      </div>
                         <div class="card-block">
                           <h4 class="card-title">{{product.name | slice:0:25}} <small>...</small></h4>
                           </div>
                         <div class="card-footer">
-                              <a [routerLink]="['/category', i]" class="card-link">Explore</a>
+                              <a [routerLink]="['/category',0,'product', i]" class="card-link">Explore</a>
                         </div>
 
                       </div>
